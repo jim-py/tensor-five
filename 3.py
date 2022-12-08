@@ -1,3 +1,18 @@
+def check(num):
+    try:
+        num = int(num)
+        if num < 0:
+            print('Число должно быть положительным!')
+            return False
+        elif num == 0:
+            print('Пусто!')
+            return False
+    except ValueError:
+        print('Должно быть число!')
+        return False
+    return True
+
+
 def fib_rec(N, f=[]):
     if len(f) < N:
         if len(f) < 1:
@@ -10,16 +25,7 @@ def fib_rec(N, f=[]):
         return f'{N}-ое число Фибоначчи - {f[N - 1]}'
 
 
-num = input('Введите число: ')
-check = True
-try:
-    num = int(num)
-    if num < 0:
-        check = False
-        print('Число должно быть положительным!')
-except ValueError:
-    check = False
-    print('Должно быть число!')
+n = input('Введите число: ')
 
-if check:
-    print(fib_rec(num))
+if check(n):
+    print(fib_rec(int(n)))
